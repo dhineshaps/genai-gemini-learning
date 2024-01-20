@@ -4,7 +4,7 @@ st.set_page_config(layout="wide")
 
 st.set_page_config(page_title="Gemini AI")
 
-st.header("The FET Quest - DAPS")
+st.header("The FET Quest")
 
 st.write('Welcome to the blog')
 
