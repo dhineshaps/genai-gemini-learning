@@ -9,7 +9,7 @@ load_dotenv() ##loading all the environment variables
 
 #genai.configure(api_key=os.getenv("GOOGLE_API_KEY")) #locally
 
-genai.configure(api_key==st.secrets["GOOGLE_API_KEY"])
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 
 ## FUNCTION TO LOAD Gemini Pro model and get response
