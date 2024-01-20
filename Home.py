@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Gemini AI")
+st.set_page_config(page_title="Gemini AI",layout="wide")
 
 st.header("The FET Quest")
 
