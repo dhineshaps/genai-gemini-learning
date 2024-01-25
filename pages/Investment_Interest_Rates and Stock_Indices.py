@@ -20,6 +20,6 @@ col3.metric(label="Nitfy IT", value=nIT,delta=nITchange)
 
 colnames = ['Investment Scheme', 'Interest Rate', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
 
-df = pd.read_csv('investment_int_rates.csv', names=colnames)
+df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
 
 AgGrid(df)
