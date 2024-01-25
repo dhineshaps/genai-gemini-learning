@@ -1,6 +1,7 @@
 from nsepython import *
 import json 
 import streamlit as st
+import pandas as pd
 
 
 n50 = nse_get_index_quote("nifty 50").get('last')
@@ -16,3 +17,9 @@ col1,col2,col3= st.columns(3)
 col1.metric(label="Nitfy 50", value=n50,delta=n50change)
 col2.metric(label="Nitfy Bank", value=nbank,delta=nbankchange)
 col3.metric(label="Nitfy IT", value=nIT,delta=nITchange)
+
+colnames = ['Investment Scheme', 'Interest Rate', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
+
+df = pd.read_csv('investment_int_rates.csv', names=colnames)
+
+AgGrid(df)
