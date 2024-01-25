@@ -2,7 +2,7 @@ from nsepython import *
 import json 
 import streamlit as st
 import pandas as pd
-
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 n50 = nse_get_index_quote("nifty 50").get('last')
 n50change = nse_get_index_quote("nifty 50").get('percChange') + "%"
