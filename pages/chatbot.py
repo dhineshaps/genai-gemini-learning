@@ -4,6 +4,11 @@ import google.generativeai as genai
 import streamlit as st
 import os
 from dotenv import load_dotenv
+
+st.set_page_config(page_title="Q&A Demo")
+
+st.header("Gemini LLM |Application")
+
 footer="""<style>
 a:link , a:visited{
 color: blue;
@@ -49,10 +54,6 @@ def get_gemini_response(question):
     response = model.generate_content(question)
    
     return response.text
-
-st.set_page_config(page_title="Q&A Demo")
-
-st.header("Gemini LLM |Application")
 
 input = st.text_input("Input: ",key="input")
 
