@@ -3,6 +3,7 @@ from PIL import Image
 
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Reach Us", page_icon = im,layout="wide")
+
 st.write("Thanks for Visiting us")
 
 footer="""<style>
