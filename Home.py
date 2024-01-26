@@ -7,18 +7,6 @@ st.header("The FET Quest")
 st.write('Welcome to the blog')
 
 footer="""<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
 .footer {
 position: fixed;
 left: 0;
