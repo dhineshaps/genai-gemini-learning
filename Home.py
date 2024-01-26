@@ -8,6 +8,7 @@ st.header("The FET Quest")
 st.write('Welcome to the blog')
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;

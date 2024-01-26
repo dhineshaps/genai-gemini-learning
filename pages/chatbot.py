@@ -5,11 +5,14 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-st.set_page_config(page_title="Q&A Demo")
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="Chatbot", page_icon = im,layout="wide")
 
-st.header("Gemini LLM |Application")
+st.header("Chatbot")
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;
