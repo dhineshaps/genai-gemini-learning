@@ -5,6 +5,12 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 from PIL import Image
+
+st.set_page_config(page_title="The FET Image")
+
+st.header("The FET Quest - Image Bot")
+
+
 footer="""<style>
 a:link , a:visited{
 color: blue;
@@ -49,10 +55,6 @@ def get_gemini_response(input,image):
           response = model.generate_content(image)
 
     return response.text
-
-st.set_page_config(page_title="The FET Image")
-
-st.header("The FET Quest - Image Bot")
 
 input = st.text_input("Input Prompt: ",key="input")
 
