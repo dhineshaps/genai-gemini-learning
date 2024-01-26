@@ -95,18 +95,6 @@ if __name__ == "__main__":
     main()
 
 footer="""<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
 .footer {
 position: fixed;
 left: 0;
