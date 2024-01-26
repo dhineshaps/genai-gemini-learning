@@ -6,12 +6,13 @@ import os
 from dotenv import load_dotenv
 from PIL import Image
 
-st.set_page_config(page_title="The FET Image")
-
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="Chatbot", page_icon = im,layout="wide")
 st.header("The FET Quest - Image Bot")
 
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;

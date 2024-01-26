@@ -1,6 +1,7 @@
 import streamlit as st
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;
@@ -16,5 +17,7 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
-
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="Reach Us", page_icon = im,layout="wide")
 st.write("Thanks for Visiting us")

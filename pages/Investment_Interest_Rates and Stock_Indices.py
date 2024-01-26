@@ -4,12 +4,15 @@ import streamlit as st
 import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder
 
-st.set_page_config(page_title="The FET Image")
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="Indices", page_icon = im,layout="wide")
 
-st.header("The FET Quest - Image Bot")
+st.header("The FET Quest - Investment Indices")
 
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;

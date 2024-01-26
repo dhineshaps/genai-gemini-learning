@@ -12,10 +12,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-st.set_page_config("Chat PDF")
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="PDF Reader", page_icon = im,layout="wide")
 st.header("Chat with PDF using Gemini💁")
 
 footer="""<style>
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;
