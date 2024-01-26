@@ -12,6 +12,27 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+st.set_page_config("Chat PDF")
+st.header("Chat with PDF using Gemini💁")
+
+footer="""<style>
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤️ By The FET Quest<a style='display: block; text-align: center</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
+
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 def get_pdf_text(pdf_docs):
@@ -75,9 +96,6 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    st.set_page_config("Chat PDF")
-    st.header("Chat with PDF using Gemini💁")
-
     user_question = st.text_input("Ask a Question from the PDF Files")
 
     if user_question:
@@ -93,20 +111,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-footer="""<style>
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: white;
-color: black;
-text-align: center;
-}
-</style>
-<div class="footer">
-<p>Developed with ❤️ By The FET Quest<a style='display: block; text-align: center</p>
-</div>
-"""
-st.markdown(footer,unsafe_allow_html=True)
