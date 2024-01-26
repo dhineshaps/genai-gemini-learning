@@ -1,6 +1,7 @@
 import streamlit as st
-
-st.set_page_config(page_title="Gemini AI",layout="wide")
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
 st.header("The FET Quest")
 
