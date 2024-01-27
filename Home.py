@@ -3,6 +3,8 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
+st.image("fet-quest-front-bluw.PNG")
+
 st.header("The FET Quest")
 
 st.write('Welcome to the blog')
