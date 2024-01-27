@@ -3,7 +3,9 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
-st.image("fet-quest-front-bluw.PNG")
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+    st.image("fet-quest-front-bluw.PNG", width=350)
 
 st.header("The FET Quest")
 
