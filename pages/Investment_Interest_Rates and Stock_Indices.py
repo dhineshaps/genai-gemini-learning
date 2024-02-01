@@ -30,7 +30,7 @@ text-align: center;
 st.markdown(footer,unsafe_allow_html=True)
 st.sidebar.image("the-fet-quest.jpg")
 
-
+st.header("Nifty Major Indices")
 
 n50 = nse_get_index_quote("nifty 50").get('last')
 n50change = nse_get_index_quote("nifty 50").get('percChange') + "%"
@@ -46,6 +46,9 @@ col1.metric(label="Nitfy 50", value=n50,delta=n50change)
 col2.metric(label="Nitfy Bank", value=nbank,delta=nbankchange)
 col3.metric(label="Nitfy IT", value=nIT,delta=nITchange)
 
+st.divider()
+
+st.header("Government Investment Intruments and Interest Rate")
 colnames = ['Investment Scheme', 'Interest Rate','Benefits', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
 
 df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
