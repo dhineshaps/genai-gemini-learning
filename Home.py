@@ -3,6 +3,8 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
+st.sidebar.image("the-fet-quest.jpg",use_column_width=True)
+
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
     #st.image("fet-quest-front-bluw.jpg", width=350)
@@ -31,4 +33,4 @@ text-align: center;
 
 st.markdown(footer,unsafe_allow_html=True)
 
-st.sidebar.image("the-fet-quest.jpg",use_column_width=True)
+#st.sidebar.image("the-fet-quest.jpg",use_column_width=True)
