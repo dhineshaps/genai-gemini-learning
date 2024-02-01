@@ -5,14 +5,11 @@ st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
 #st.sidebar.image("the-fet-quest.jpg",use_column_width=True)
 
-#left_co, cent_co,last_co = st.columns(3)
-#with cent_co:
-#    #st.image("fet-quest-front-bluw.jpg", width=350)
-#   st.image("the-fet-quest.jpg", width=250)
+left_co, cent_co,last_co = st.columns(3)
 
-st.header("The FET Quest")
-
-st.write('Welcome to the blog')
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+    st.title("The FET Quest")
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
@@ -34,3 +31,14 @@ text-align: center;
 st.markdown(footer,unsafe_allow_html=True)
 
 st.sidebar.image("the-fet-quest.jpg")
+
+
+st.write('The FET Quest is committed to simplifying Finance and creating value for our esteemed clients in making their investment decisions.')
+
+st.write("You don't have to be brilliant, only a little bit wiser than the other guys, on average, for a long, long, time.")
+
+st.write('Investment instruments continue to bewilder individuals with their financial jargon, we are envisioned to untangle it by Integrating it with technology and making life simple.')
+
+st.write('we are working on services that include financial Valuation of the equity markets and AI-powered Annual Report Analyser of the company which saves huge time in evaluating the cos.')
+
+st.write('Many more yet to come - Passionate to keep things Simple.')
