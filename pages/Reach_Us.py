@@ -23,3 +23,4 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
+st.sidebar.image("the-fet-quest.jpg")
