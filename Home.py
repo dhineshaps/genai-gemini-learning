@@ -33,4 +33,4 @@ text-align: center;
 
 st.markdown(footer,unsafe_allow_html=True)
 
-st.sidebar.image("the-fet-quest.jpg")
+st.sidebar.image("the-fet-quest.jpg", width=150)
