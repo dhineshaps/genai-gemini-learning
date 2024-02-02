@@ -2,10 +2,15 @@ import streamlit as st
 from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
-
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
       new_title = '<p style="font-family:sans-serif; color:#008B8B; font-size: 42px;">The FET Quest</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
+
+left_co1, cent_co1,last_co1= st.columns(3)
+with cent_co1:
+#    st.title("The FET Quest")
+      new_title = '<h6 style="font-family:sans-serif; color:#008B8B; font-size: 15px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Embracing the Financial Literacy</h6>'
       st.markdown(new_title, unsafe_allow_html=True)
 
 footer="""<style>
