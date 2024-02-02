@@ -4,12 +4,12 @@ im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
-      new_title = '<p style="font-family:sans-serif; color:#DAA520; font-size: 42px;">The FET Quest</p>'
+      new_title = '<p style="font-family:cursive; color:#DAA520; font-size: 42px;">The FET Quest</p>'
       st.markdown(new_title, unsafe_allow_html=True)
 
 left_co1, cent_co1,last_co1= st.columns(3)
 with cent_co1:
-      new_title1 = '<h6 style="font-family:sans-serif; color:#DAA520; font-size: 15px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Embracing the Financial Literacy</h6>'
+      new_title1 = '<h6 style="font-family:cursive; color:#DAA520; font-size: 15px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Embracing the Financial Literacy</h6>'
       st.markdown(new_title1, unsafe_allow_html=True)
 
 footer="""<style>
