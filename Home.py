@@ -33,12 +33,12 @@ st.markdown(footer,unsafe_allow_html=True)
 st.sidebar.image("the-fet-quest.jpg")
 
 
-st.write('The FET Quest is committed to simplifying Finance and creating value for our esteemed clients in making their investment decisions.')
+st.write('_The FET Quest_ is committed to simplifying Finance and creating value for our esteemed clients in making their investment decisions.')
 
-st.write("You don't have to be brilliant, only a little bit wiser than the other guys, on average, for a long, long, time.")
+st.markdown("<h6 style='text-align: left;color:DarkGoldenRod;'><em>'You don't have to be brilliant, only a little bit wiser than the other guys, on average, for a long, long, time - Charlie Munger'</em></h6>", unsafe_allow_html=True)
 
 st.write('Investment instruments continue to bewilder individuals with their financial jargon, we are envisioned to untangle it by Integrating it with technology and making life simple.')
 
-st.write('we are working on services that include financial Valuation of the equity markets and AI-powered Annual Report Analyser of the company which saves huge time in evaluating the cos.')
+st.write('we are working on services that include financial Valuation of the equity markets and AI-powered Annual Financial Report Analyser of the company which saves huge time in evaluating the cos.')
 
-st.write('Many more yet to come - Passionate to keep things Simple.')
+st.write(':blue[Many more yet to come - Passionate to keep things Simple.]')
