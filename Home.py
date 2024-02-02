@@ -9,9 +9,8 @@ with cent_co:
 
 left_co1, cent_co1,last_co1= st.columns(3)
 with cent_co1:
-#    st.title("The FET Quest")
-      new_title = '<h6 style="font-family:sans-serif; color:#008B8B; font-size: 15px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Embracing the Financial Literacy</h6>'
-      st.markdown(new_title, unsafe_allow_html=True)
+      new_title1 = '<h6 style="font-family:sans-serif; color:#008B8B; font-size: 15px;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Embracing the Financial Literacy</h6>'
+      st.markdown(new_title1, unsafe_allow_html=True)
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
