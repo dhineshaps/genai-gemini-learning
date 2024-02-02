@@ -3,13 +3,10 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
 
-#st.sidebar.image("the-fet-quest.jpg",use_column_width=True)
-
-left_co, cent_co,last_co = st.columns(3)
-
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
-    st.title("The FET Quest")
+      new_title = '<p style="font-family:sans-serif; color:#008B8B; font-size: 42px;">The FET Quest</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
