@@ -12,7 +12,7 @@ st.set_page_config(page_title="Chatbot", page_icon = im,layout="wide")
 left_co, cent_co,last_co = st.columns(3)
 with cent_co:
 #    st.title("The FET Quest")
-      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">The FET Quest - Chatbot 🤖</p>'
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Chatbot 🤖</p>'
       st.markdown(new_title, unsafe_allow_html=True)
 
 footer="""<style>
