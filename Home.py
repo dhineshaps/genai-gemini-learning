@@ -40,6 +40,6 @@ st.markdown("<h6 style='text-align: left;color:DarkKhaki;'><em>'You don't have t
 
 st.write('Investment instruments continue to bewilder individuals with their financial jargon, we are envisioned to untangle it by Integrating it with technology and making life simple.')
 
-st.write('we are working on services that include financial Valuation of the equity markets and AI-powered Annual Financial Report Analyser of the company which saves huge time in evaluating the cos.')
+st.write('we are working on services that include Financial Valuation of the Equity Markets and AI-powered Annual Financial Report Analyser,Intercepting Balance Sheets of the company which saves huge time in evaluating the cos.')
 
 st.write(':blue[Many more yet to come - Passionate to keep things Simple.]')
