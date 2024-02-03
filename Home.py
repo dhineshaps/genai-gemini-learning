@@ -36,7 +36,7 @@ st.sidebar.image("the-fet-quest.jpg")
 
 st.write('_The FET Quest_ is committed to simplifying Finance and creating value for our esteemed clients in making their investment decisions.')
 
-st.markdown("<h6 style='text-align: left;color:DarkKhaki;'><em>'You don't have to be brilliant, only a little bit wiser than the other guys, on average, for a long, long, time - Charlie Munger'</em></h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: left;color:DarkKhaki;'><em>\"You don't have to be brilliant, only a little bit wiser than the other guys, on average, for a long, long, time - Charlie Munger\"</em></h6>", unsafe_allow_html=True)
 
 st.write('Investment instruments continue to bewilder individuals with their financial jargon, we are envisioned to untangle it by Integrating it with technology and making life simple.')
 
