@@ -33,7 +33,7 @@ text-align: center;
 st.markdown(footer,unsafe_allow_html=True)
 st.sidebar.image("the-fet-quest.jpg")
 st.info("Live Market Indices are getting Feed Except on Market Holidays")
-st.header("Nifty Major Indices",anchor=False)
+st.header(":violet[Nifty Major Indices]",anchor=False)
 
 n50 = nse_get_index_quote("nifty 50").get('last')
 n50change = nse_get_index_quote("nifty 50").get('percChange') + "%"
@@ -51,7 +51,7 @@ col3.metric(label="Nitfy IT", value=nIT,delta=nITchange)
 
 st.divider()
 
-st.header("Government Investment Intruments and Interest Rate",anchor=False)
+st.header("::violet[Government Investment Intruments and Interest Rates]",anchor=False)
 colnames = ['Investment Scheme', 'Interest Rate','Benefits', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
 
 df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
