@@ -9,7 +9,11 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Chatbot", page_icon = im,layout="wide")
 
-st.header("Chatbot")
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+#    st.title("The FET Quest")
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Chatbot 🤖</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
@@ -36,7 +40,7 @@ load_dotenv() ##loading all the environment variables
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-st.write("Check 1")
+st.info("Chatbot is powered by Google Gemini Pro and have trained Data till Sep 2021")
 ## FUNCTION TO LOAD Gemini Pro model and get response
 
 model = genai.GenerativeModel("gemini-pro")  #for text - gemini pro
@@ -47,9 +51,9 @@ def get_gemini_response(question):
    
     return response.text
 
-input = st.text_input("Input: ",key="input")
+input = st.text_input(":blue[**_Input:_**] ",key="input",placeholder="say hi and start the conversation")
 
-submit = st.button("Ask the question")
+submit = st.button(":green[Ask the question]")
 
 #when submit is clicked
 
