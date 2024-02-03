@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
-from streamlit_extras.add_vertical_space import add_vertical_space
-from streamlit_extras.buy_me_a_coffee import button
+import webbrowser
 
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Home", page_icon = im,layout="wide")
@@ -51,4 +50,7 @@ with st.expander("Whether The FET Quest is Registered ?"):
 with st.expander("What Benefits The FET Quest can Provide ?"):
       st.write("We offer the First layer of advisory and solutions to your doubts on Financial doubts in Primary and Secondary Markets, Bonds and other Investment Instruments.")
 
-button(username="fake-username", text="blog",floating=False, width=221)
+url = 'https://dhinesh-palanisamy.medium.com/'
+
+if st.button('Click here to Visit Medium Blog'):
+webbrowser.open_new_tab(url)
