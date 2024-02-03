@@ -8,7 +8,11 @@ from PIL import Image
 
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Chatbot", page_icon = im,layout="wide")
-st.header("The FET Quest - Image Bot")
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+#    st.title("The FET Quest")
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Imagebot 🤖</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
 
 
 footer="""<style>
@@ -46,15 +50,15 @@ def get_gemini_response(input,image):
 
     return response.text
 
-input = st.text_input("Input Prompt: ",key="input")
+input = st.text_input(":blue[**_Input :_**]",key="input",placeholder="you can ask to create a blog or describe about the image")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image.", type=["jpg", "jpeg", "png"])
 image=""   
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
 
-submit = st.button("Tell me about the image")
+submit = st.button(":green[Describe me about the image]")
 
 #when submit is clicked
 
