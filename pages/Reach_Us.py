@@ -35,7 +35,7 @@ text-align: center;
 """
 
 st.markdown(footer,unsafe_allow_html=True)
-st.write("Thanks for Visting us, we are happy to hear from you !")
+st.write("Thanks for Visting us, we are happy to hear from you :smiley: !")
 
 st.info("This is model site, we are not recommending any investment instrments or stocks , please do your own research based on the data available here")
 
