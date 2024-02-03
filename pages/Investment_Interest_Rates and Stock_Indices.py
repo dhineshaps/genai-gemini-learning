@@ -8,7 +8,10 @@ from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="Indices", page_icon = im,layout="wide")
 
-st.header("The FET Quest - Investment Indices")
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Indices and Interest rates 📈</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
 
 
 footer="""<style>
