@@ -32,7 +32,7 @@ text-align: center;
 """
 st.markdown(footer,unsafe_allow_html=True)
 st.sidebar.image("the-fet-quest.jpg")
-
+st.info("Live Indices Feeded Except on Market Holidays")
 st.header("Nifty Major Indices")
 
 n50 = nse_get_index_quote("nifty 50").get('last')
@@ -55,5 +55,6 @@ st.header("Government Investment Intruments and Interest Rate")
 colnames = ['Investment Scheme', 'Interest Rate','Benefits', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
 
 df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
-
+st.info("Feel Free to drag and create filter over the table")
 AgGrid(df)
+st.warning("Interest Rate are not fixed and periodically changed by the Government, Please Act it")
