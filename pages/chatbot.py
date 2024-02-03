@@ -36,7 +36,7 @@ load_dotenv() ##loading all the environment variables
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-
+st.write("Check")
 ## FUNCTION TO LOAD Gemini Pro model and get response
 
 model = genai.GenerativeModel("gemini-pro")  #for text - gemini pro
