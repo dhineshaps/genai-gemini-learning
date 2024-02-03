@@ -20,6 +20,8 @@ left_co, cent_co,last_co = st.columns(3)
 with cent_co:
       new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Chat With PDF 📁</p>'
       st.markdown(new_title, unsafe_allow_html=True)
+      
+st.info("we are in the process of making prompt to evaluate the Company's Annual Reports")
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
