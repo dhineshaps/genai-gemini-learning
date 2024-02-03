@@ -15,7 +15,11 @@ load_dotenv()
 from PIL import Image
 im = Image.open('the-fet-quest.jpg')
 st.set_page_config(page_title="PDF Reader", page_icon = im,layout="wide")
-st.header("Chat with PDF using Gemini💁")
+
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Chat With PDF 📁</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
 
 footer="""<style>
 #MainMenu {visibility: hidden; }
@@ -99,13 +103,13 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    user_question = st.text_input(":blue[_Ask a Question from the PDF File_]")
 
     if user_question:
         user_input(user_question)
 
     pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
-    if st.button("Submit & Process"):
+    if st.button(":green[Submit & Process]"):
             with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
