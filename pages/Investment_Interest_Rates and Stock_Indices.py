@@ -32,7 +32,7 @@ text-align: center;
 """
 st.markdown(footer,unsafe_allow_html=True)
 st.sidebar.image("the-fet-quest.jpg")
-st.info("Live Indices Feeded Except on Market Holidays")
+st.info("Live Market Indices are getting Feed Except on Market Holidays")
 st.header("Nifty Major Indices")
 
 n50 = nse_get_index_quote("nifty 50").get('last')
