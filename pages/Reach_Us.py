@@ -42,13 +42,13 @@ st.info("This is model site, we are not recommending any investment instrments o
 new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 22px;">FAQs</p>'
 st.markdown(new_title, unsafe_allow_html=True)
 
+with st.expander("Medium to Reach Us"):
+      st.write("Feel Free to write us :e-mail: daps.investments@gmail.com")
 with st.expander("Describe About The FET Quest ?"):
       st.write("The FET Quest is the Educational and Technology subsidiary of :green[DAPS Investments].")
 with st.expander("Whether The FET Quest is Registered ?"):
       st.write("We are genuine however this is a Model Technical Portfolio Site, we are not registered under any Sections Indian Companies Act for now.")
 with st.expander("What Benefits The FET Quest can Provide ?"):
       st.write("We offer the First layer of advisory and solutions to your doubts on Financial doubts in Primary and Secondary Markets, Bonds and other Investment Instruments.")
-with st.expander("Medium to Reach Us"):
-      st.write("Feel Free to write us @ daps.investments@gmail.com")
 
 button(username="fake-username", text="blog",floating=False, width=221)
