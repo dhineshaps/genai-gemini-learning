@@ -51,7 +51,7 @@ col3.metric(label="Nitfy IT", value=nIT,delta=nITchange)
 
 st.divider()
 
-st.header("::violet[Government Investment Intruments and Interest Rates]",anchor=False)
+st.header(":violet[Government Investment Intruments and Interest Rates]",anchor=False)
 colnames = ['Investment Scheme', 'Interest Rate','Benefits', 'Lock-in Period', 'Minimum Investment','Maximum Investment']
 
 df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
