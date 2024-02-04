@@ -9,19 +9,22 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
+
+load_dotenv()
+
+from PIL import Image
+im = Image.open('the-fet-quest.jpg')
+st.set_page_config(page_title="PDF Reader", page_icon = im,layout="wide")
+
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
+      new_title = '<p style="font-family:fantasy; color:#DAA520; font-size: 32px;">Chat With PDF 📁</p>'
+      st.markdown(new_title, unsafe_allow_html=True)
+      
+st.info("we are in the process of making prompt to evaluate the Company's Annual Reports")
+
 footer="""<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
+#MainMenu {visibility: hidden; }
 .footer {
 position: fixed;
 left: 0;
@@ -37,8 +40,7 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
-
-load_dotenv()
+st.sidebar.image("the-fet-quest.jpg")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
@@ -103,16 +105,13 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    st.set_page_config("Chat PDF")
-    st.header("Chat with PDF using Gemini💁")
-
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    user_question = st.text_input(":blue[_Ask a Question from the PDF File_]")
 
     if user_question:
         user_input(user_question)
 
     pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
-    if st.button("Submit & Process"):
+    if st.button(":green[Submit & Process]"):
             with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
                 text_chunks = get_text_chunks(raw_text)
