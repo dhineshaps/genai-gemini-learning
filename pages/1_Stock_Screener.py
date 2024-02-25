@@ -97,14 +97,14 @@ def sales_nums():
 def output_display(pr_hld,qtr,sales,qtrs):
     c1, c2, c3 = st.columns(3)
     with c1:
-         st.write(f'Current Market price - {cmp} Rs')
-         st.write(f'Market Capitilization - {market_cap} Cr')
+         st.write(f':orange[Current Market price -] {cmp} Rs')
+         st.write(f':orange[Market Capitilization -] {market_cap} Cr')
     with c2:
-        st.write(f'P/E - {PE}')
-        st.write(f'Book Value - {BV}')
+        st.write(f':orange[P/E -] {PE}')
+        st.write(f':orange[Book Value -] {BV}')
     with c3:
-        st.write(f'P/B ratio {PB_Ratio}')
-        st.write(f'Sector : {sector.strip()}')
+        st.write(f':orange[P/B ratio -] {PB_Ratio}')
+        st.write(f':orange[Sector :-] {sector.strip()}')
         #st.write(f'Industry : {industry.strip()}')
     c4, c5 = st.columns(2)
 
