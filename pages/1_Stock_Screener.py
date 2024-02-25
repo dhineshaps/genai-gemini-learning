@@ -120,7 +120,7 @@ def output_display(pr_hld,qtr,sales,qtrs):
         fig2, ax2= plot.subplots(figsize=(6,3.5))
         st.info("Higher the Promoter Holding, Higher the Trust in the Company by Owners, however some exception are there" )
     with c5:        
-        st.write('Quaterly Sales or Revenue of the company')
+        st.write(':blue[Quaterly Sales or Revenue of the company]')
         x1 = sales
         y1 = qtrs[1:]
         ax2.scatter(x1,y1,color='green')
