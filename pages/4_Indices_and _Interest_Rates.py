@@ -57,4 +57,4 @@ colnames = ['Investment Scheme', 'Interest Rate','Benefits', 'Lock-in Period', '
 df = pd.read_csv('/mount/src/genai-gemini-learning/investment_int_rates.csv', names=colnames)
 st.info("Feel Free to drag and create filter over the table")
 AgGrid(df)
-st.warning("Interest Rate are not fixed and periodically changed by the Government, Please Act it")
+st.warning("Interest Rate are not fixed and periodically changed by the Government, Please act on it accordingly")
