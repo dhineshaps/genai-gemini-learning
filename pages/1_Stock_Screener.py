@@ -112,20 +112,22 @@ def output_display(pr_hld,qtr,sales,qtrs):
         st.write(':blue[Share Holding Pattern]')
         x = pr_hld['Type']
         y = pr_hld[qtr]
-        fig, ax = plot.subplots(figsize=(6,3.5))
-        ax.bar(x,y,color='green')
+        fig, ax = plot.subplots(figsize=(12,3.5))
+        ax.stem(x, y)
         plot.xlabel("Type of Shareholders")
         plot.ylabel("in %")
         st.pyplot(fig)
-        fig2, ax2= plot.subplots(figsize=(6,3.5))
         st.info("Higher the Promoter Holding, Higher the Trust in the Company by Owners, however some exception are there" )
     with c5:        
         st.write(':blue[Quaterly Sales or Revenue of the company]')
         x1 = sales
         y1 = qtrs[1:]
-        ax2.scatter(x1,y1,color='green')
-        plot.xlabel("Sales | Revenue in Rs. crores")
-        plot.ylabel("Quaters")
+        fig2, ax2= plot.subplots(figsize=(12,3.5))
+        x1 =  qtrs[1:]
+        y1 = sales
+        ax2.stem(x1, y1)
+        plot.xlabel("Quaters")
+        plot.ylabel("Sales | Revenue in Rs. crores")
         st.pyplot(fig2)
         st.info("Increaing Sales or Revenue is Good Sign")
 
