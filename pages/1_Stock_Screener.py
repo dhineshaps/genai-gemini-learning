@@ -45,7 +45,7 @@ sector = " "
 industry = " "
 PB_Ratio= 0.0
 
-df = pd.read_csv('/mount/src/genai-gemini-learning/stock_list.csv')  #data is taken from NSE
+df = pd.read_csv('/mount/src/genai-gemini-learning/stock_list1.csv')  #data is taken from NSE
 col_one_list = df['Symbol'].tolist()
 
 SCRIP = st.selectbox(
