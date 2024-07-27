@@ -94,6 +94,17 @@ def sales_nums():
      num_row = [float(i) for i in row_list[1:]]   
      return num_row,qtrs
 
+def eps_nums():
+     table_df,qtrs = table_extraction(soup,'quarters','data-table')
+     df3 = table_df.loc[[10]]
+     print("I am here")
+     row_list = df3.loc[[10]].values.flatten().tolist()
+     heads =qtrs[1:]
+     print(heads)   #print headers - quater
+     num_row = [float(i) for i in row_list[1:]]
+     print(num_row)
+     return num_row, qtrs
+
 def output_display(pr_hld,qtr,sales,qtrs):
     c1, c2, c3 = st.columns(3)
     with c1:
@@ -131,6 +142,19 @@ def output_display(pr_hld,qtr,sales,qtrs):
         st.pyplot(fig2)
         st.info("Increaing Sales or Revenue is Good Sign")
 
+    c7, c8 = st.columns(2)
+    
+    with c7:
+        st.write(':blue[Earning Per Share]')
+        fig3, ax3= plot.subplots(figsize=(12,3.5))
+        x2 =  qtrss[1:]
+        y2 = eps
+        ax3.stem(x2, y2)
+        plot.xlabel("Quaters")
+        plot.ylabel("EPS in Rs.")
+        st.pyplot(fig3)
+        st.info("Increaing in EPS is good sign")
+
 if(SCRIP):
        link = f'https://www.screener.in/company/{SCRIP}'
        hdr = {'User-Agent':'Mozilla/5.0'}
@@ -140,6 +164,7 @@ try:
       soup = BeautifulSoup(page)
       pr_hld,qtr= promoter_holdings()
       sales,qtrs = sales_nums()
+      eps,qtrss= eps_nums()
       #print(pr_hld)
       #print("Quater is "+qtr)
       #print(sales)
@@ -174,7 +199,7 @@ try:
         if(idx == 5):
             for i in x:
                 industry = i 
-      output_display(pr_hld,qtr,sales,qtrs)
+      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss)
 except Exception:
       traceback.print_exc()
       print(f'EXCEPTION THROWN: UNABLE TO FETCH DATA FOR {SCRIP}')
