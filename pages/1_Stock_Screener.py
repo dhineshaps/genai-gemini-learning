@@ -97,15 +97,22 @@ def sales_nums():
 def eps_nums():
      table_df,qtrs = table_extraction(soup,'quarters','data-table')
      df3 = table_df.loc[[10]]
-     print("I am here")
      row_list = df3.loc[[10]].values.flatten().tolist()
      heads =qtrs[1:]
-     print(heads)   #print headers - quater
      num_row = [float(i) for i in row_list[1:]]
      print(num_row)
      return num_row, qtrs
 
-def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss):
+def opm_nums():
+     table_df,qtrs = table_extraction(soup,'quarters','data-table')
+     df4 = table_df.loc[[3]]
+     row_list = df4.loc[[3]].values.flatten().tolist()
+     heads =qtrs[1:]
+     num_row = [float(i) for i in row_list[1:]]
+     print(num_row)
+     return num_row, qtrs
+
+def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts):
     c1, c2, c3 = st.columns(3)
     with c1:
          st.write(f':orange[Current Market price -] {cmp} Rs')
@@ -154,6 +161,17 @@ def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss):
         plot.ylabel("EPS in Rs.")
         st.pyplot(fig3)
         st.info("Increaing in EPS is good sign")
+    
+    with c8:
+        st.write(':blue[Operating Profit Margin]')
+        fig4, ax4= plot.subplots(figsize=(12,3.5))
+        x3 =  qts[1:]
+        y3 = opm
+        ax4.stem(x3, y3)
+        plot.xlabel("Quaters")
+        plot.ylabel("OPM in %")
+        st.pyplot(fig4)
+        st.info("Operating Profit Margin shows company's Operating profit vs Sales or Revenue")
 
 if(SCRIP):
        link = f'https://www.screener.in/company/{SCRIP}'
@@ -165,6 +183,7 @@ try:
       pr_hld,qtr= promoter_holdings()
       sales,qtrs = sales_nums()
       eps,qtrss= eps_nums()
+      opm,qts= opm_nums()
       #print(pr_hld)
       #print("Quater is "+qtr)
       #print(sales)
@@ -199,7 +218,7 @@ try:
         if(idx == 5):
             for i in x:
                 industry = i 
-      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss)
+      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts)
 except Exception:
       traceback.print_exc()
       print(f'EXCEPTION THROWN: UNABLE TO FETCH DATA FOR {SCRIP}')
