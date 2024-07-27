@@ -105,7 +105,7 @@ def eps_nums():
      print(num_row)
      return num_row, qtrs
 
-def output_display(pr_hld,qtr,sales,qtrs):
+def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss):
     c1, c2, c3 = st.columns(3)
     with c1:
          st.write(f':orange[Current Market price -] {cmp} Rs')
