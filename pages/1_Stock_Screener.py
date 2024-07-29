@@ -160,7 +160,7 @@ def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts):
         plot.xlabel("Quaters")
         plot.ylabel("EPS in Rs.")
         st.pyplot(fig3)
-        st.info("Increasing in EPS is good sign")
+        st.info("Increasingg in EPS is good sign")
     
     with c8:
         st.write(':blue[Operating Profit Margin]')
