@@ -11,3 +11,4 @@ streamlit-extras
 urllib3
 matplotlib
 langchain-community
+jugaad-data
