@@ -5,6 +5,9 @@ import matplotlib.pyplot as plot
 from urllib.request import urlopen, Request
 import traceback
 from PIL import Image
+from datetime import date
+from jugaad_data.nse import stock_df
+from datetime import timedelta
 
 
 im = Image.open('the-fet-quest.jpg')
@@ -44,6 +47,8 @@ BV = 0.0
 sector = " "
 industry = " "
 PB_Ratio= 0.0
+stocks_data = []
+LTP = []
 
 df = pd.read_csv('/mount/src/genai-gemini-learning/stock_list.csv')  #data is taken from NSE https://www.nseindia.com/market-data/securities-available-for-trading
 col_one_list = df['Symbol'].tolist()
@@ -77,6 +82,41 @@ def table_extraction(soup, section_id, class_name):
     table_df=table_df.replace('\,','',regex=True)        
     return table_df,col_headers
 
+def ltp_extraction():
+     #print(stocks_data[0])
+     #print(stocks_data[-1])
+     print(SCRIP)
+     #ltpdf = stock_df(symbol="SBIN", from_date=stocks_data[0],to_date=stocks_data[-1], series="EQ")
+     ltpdf = stock_df(symbol=SCRIP, from_date=stocks_data[0],to_date=stocks_data[-1], series="EQ")
+     ltpdf['DATE'] = ltpdf['DATE'].astype(str)
+     ltpdf['DATE'] = pd.to_datetime(ltpdf['DATE']).dt.date 
+     for i in range(len(stocks_data)):
+          LTPS = ltpdf.loc[ltpdf['DATE'] == stocks_data[i]]
+          col_present = len(LTPS)
+          if(col_present == 0):
+            while True:
+                #print("Here I am")
+                cnt = 0
+                #print(cnt)
+                nd = stocks_data[i] - timedelta(days = 1 + cnt)
+                #print(nd)
+                #LTPS = df.loc[df['DATE'] == nd, 'LTP'].squeeze()
+                LTPS = ltpdf.loc[ltpdf['DATE'] == nd]
+                col_present = len(LTPS)
+                if(col_present == 1):
+                    LTPS = ltpdf.loc[ltpdf['DATE'] == nd, 'LTP'].squeeze()
+                    break
+                else:
+                #print("ere ami in sub lop")
+                  cnt = cnt+1
+                #print(cnt)
+          else:
+                #print("inside the escape")    
+                LTPS = ltpdf.loc[ltpdf['DATE'] == stocks_data[i], 'LTP'].squeeze()
+          LTP.append(LTPS)
+     #print(LTP)
+     return LTP
+
 def promoter_holdings():
      promoter_holding,Headers = table_extraction(soup,'shareholding','data-table')
      promoter_holding.drop(promoter_holding.tail(1).index,inplace=True)
@@ -100,8 +140,36 @@ def eps_nums():
      row_list = df3.loc[[10]].values.flatten().tolist()
      heads =qtrs[1:]
      num_row = [float(i) for i in row_list[1:]]
-     print(num_row)
-     return num_row, qtrs
+     cols = heads
+     for i in cols:
+            month = i.split(" ")[0]
+            years = int(i.split(" ")[1]) 
+            if month == 'Jun':
+                 mon = 6
+                 date1 = 30
+            elif month == 'Sep':
+                 mon = 9
+                 date1 = 30
+            elif month == 'Dec':
+                 mon =12
+                 date1 = 31
+            else:
+                 mon = 3
+                 date1 = 31
+            d = date(years, mon, date1)
+            daywork =  d.strftime("%A")
+            if daywork == 'Saturday':
+                nd = d - timedelta(days = 1)
+                stocks_data.append(nd)
+            elif daywork == 'Sunday':
+                nd = d - timedelta(days = 2)
+                stocks_data.append(nd)
+            else:
+                stocks_data.append(d)
+     num_row = [float(i) for i in row_list[1:]]
+     ltp_row = ltp_extraction()
+     return ltp_row, num_row, qtrs
+
 
 def opm_nums():
      table_df,qtrs = table_extraction(soup,'quarters','data-table')
@@ -112,7 +180,7 @@ def opm_nums():
      print(num_row)
      return num_row, qtrs
 
-def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts):
+def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts):
     c1, c2, c3 = st.columns(3)
     with c1:
          st.write(f':orange[Current Market price -] {cmp} Rs')
@@ -173,6 +241,31 @@ def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts):
         st.pyplot(fig4)
         st.info("Operating Profit Margin shows company's Operating profit vs Sales or Revenue")
 
+    c9,c10,c11= st.columns((1, 5, 1))
+
+    with c10:
+        st.write(':blue[EPS VS Stock Price in Respective Quaters]')
+        fig5, ax5= plot.subplots(figsize=(15,5.5)) #15,5.5
+        x3 =  qts[1:]
+        y3 = eps
+        y4 = ltpv
+        color = 'tab:red'
+        x_color = 'tab:green'
+        ax5.set_xlabel('Quaters', color=x_color)
+        ax5.tick_params(axis='x', labelcolor=x_color)
+        ax5.set_ylabel('EPS in Rs.', color=color)
+        ax5.plot(x3, y3, color=color, marker='o')
+        ax5.tick_params(axis='y',labelcolor=color)
+        ax6 = ax5.twinx()
+        color = 'tab:blue'
+        ax6.plot(x3, y4, color=color, marker='o')
+        ax6.set_ylabel('Stock Price in Rs.', color=color)
+        ax6.tick_params(axis='y', labelcolor=color)
+        fig5.tight_layout()
+        st.pyplot(fig5)
+        st.info("EPS Increasing along with Price of the stock shows the steady earning and justifiable Stock Price")
+
+
 if(SCRIP):
        link = f'https://www.screener.in/company/{SCRIP}'
        hdr = {'User-Agent':'Mozilla/5.0'}
@@ -182,7 +275,7 @@ try:
       soup = BeautifulSoup(page)
       pr_hld,qtr= promoter_holdings()
       sales,qtrs = sales_nums()
-      eps,qtrss= eps_nums()
+      ltpv,eps,qtrss= eps_nums()
       opm,qts= opm_nums()
       #print(pr_hld)
       #print("Quater is "+qtr)
@@ -218,7 +311,7 @@ try:
         if(idx == 5):
             for i in x:
                 industry = i 
-      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,opm,qts)
+      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts)
 except Exception:
       traceback.print_exc()
       print(f'EXCEPTION THROWN: UNABLE TO FETCH DATA FOR {SCRIP}')
