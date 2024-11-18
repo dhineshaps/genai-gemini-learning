@@ -180,7 +180,8 @@ def opm_nums():
      print(num_row)
      return num_row, qtrs
 
-def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts):
+#def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts):
+def output_display(pr_hld,qtr,sales,qtrs,opm,qts):
     c1, c2, c3 = st.columns(3)
     with c1:
          st.write(f':orange[Current Market price -] {cmp} Rs')
@@ -219,18 +220,18 @@ def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts):
 
     c7, c8 = st.columns(2)
     
-    with c7:
-        st.write(':blue[Earning Per Share]')
-        fig3, ax3= plot.subplots(figsize=(12,3.5))
-        x2 =  qtrss[1:]
-        y2 = eps
-        ax3.stem(x2, y2)
-        plot.xlabel("Quaters")
-        plot.ylabel("EPS in Rs.")
-        st.pyplot(fig3)
-        st.info("Increasing in EPS is good sign")
+    # with c7:
+    #     st.write(':blue[Earning Per Share]')
+    #     fig3, ax3= plot.subplots(figsize=(12,3.5))
+    #     x2 =  qtrss[1:]
+    #     y2 = eps
+    #     ax3.stem(x2, y2)
+    #     plot.xlabel("Quaters")
+    #     plot.ylabel("EPS in Rs.")
+    #     st.pyplot(fig3)
+    #     st.info("Increasing in EPS is good sign")
     
-    with c8:
+    with c7:
         st.write(':blue[Operating Profit Margin]')
         fig4, ax4= plot.subplots(figsize=(12,3.5))
         x3 =  qts[1:]
@@ -243,27 +244,27 @@ def output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts):
 
     c9,c10,c11= st.columns((1, 5, 1))
 
-    with c10:
-        st.write(':blue[EPS VS Stock Price in Respective Quaters]')
-        fig5, ax5= plot.subplots(figsize=(15,5.5)) #15,5.5
-        x3 =  qts[1:]
-        y3 = eps
-        y4 = ltpv
-        color = 'tab:red'
-        x_color = 'tab:green'
-        ax5.set_xlabel('Quaters', color=x_color)
-        ax5.tick_params(axis='x', labelcolor=x_color)
-        ax5.set_ylabel('EPS in Rs.', color=color)
-        ax5.plot(x3, y3, color=color, marker='o')
-        ax5.tick_params(axis='y',labelcolor=color)
-        ax6 = ax5.twinx()
-        color = 'tab:blue'
-        ax6.plot(x3, y4, color=color, marker='o')
-        ax6.set_ylabel('Stock Price in Rs.', color=color)
-        ax6.tick_params(axis='y', labelcolor=color)
-        fig5.tight_layout()
-        st.pyplot(fig5)
-        st.info("EPS Increasing along with Price of the stock shows the steady earning and justifiable Stock Price")
+    # with c10:
+    #     st.write(':blue[EPS VS Stock Price in Respective Quaters]')
+    #     fig5, ax5= plot.subplots(figsize=(15,5.5)) #15,5.5
+    #     x3 =  qts[1:]
+    #     y3 = eps
+    #     y4 = ltpv
+    #     color = 'tab:red'
+    #     x_color = 'tab:green'
+    #     ax5.set_xlabel('Quaters', color=x_color)
+    #     ax5.tick_params(axis='x', labelcolor=x_color)
+    #     ax5.set_ylabel('EPS in Rs.', color=color)
+    #     ax5.plot(x3, y3, color=color, marker='o')
+    #     ax5.tick_params(axis='y',labelcolor=color)
+    #     ax6 = ax5.twinx()
+    #     color = 'tab:blue'
+    #     ax6.plot(x3, y4, color=color, marker='o')
+    #     ax6.set_ylabel('Stock Price in Rs.', color=color)
+    #     ax6.tick_params(axis='y', labelcolor=color)
+    #     fig5.tight_layout()
+    #     st.pyplot(fig5)
+    #     st.info("EPS Increasing along with Price of the stock shows the steady earning and justifiable Stock Price")
 
 
 if(SCRIP):
@@ -275,7 +276,7 @@ try:
       soup = BeautifulSoup(page)
       pr_hld,qtr= promoter_holdings()
       sales,qtrs = sales_nums()
-      ltpv,eps,qtrss= eps_nums()
+      #ltpv,eps,qtrss= eps_nums()
       opm,qts= opm_nums()
       #print(pr_hld)
       #print("Quater is "+qtr)
@@ -311,7 +312,8 @@ try:
         if(idx == 5):
             for i in x:
                 industry = i 
-      output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts)
+      #output_display(pr_hld,qtr,sales,qtrs,eps,qtrss,ltpv,opm,qts)
+      output_display(pr_hld,qtr,sales,qtrs,opm,qts)
 except Exception:
       traceback.print_exc()
       print(f'EXCEPTION THROWN: UNABLE TO FETCH DATA FOR {SCRIP}')
